@@ -17,9 +17,9 @@
 
 ### Association
 has_many: items
-has_many: purchase_record
+has_many: purchase_records
 
-## buyers テーブル
+## purchase_records テーブル
 
 | column           | Type      | Options           |
 | ---------------- | --------- | ----------------- |
@@ -27,10 +27,9 @@ has_many: purchase_record
 | item             | references | null: false, foreign_key: true |
 
 ### Association
-has_many: items
-has_one: addresses
+has_one: address
 belongs_to: user
-
+belongs_to: item
 
 
 ## addresses テーブル
@@ -47,7 +46,7 @@ belongs_to: user
 
 ### Association
 belongs_to: purchase_record
-belongs_to_active_hash: prefecture
+
 
 
 ## items テーブル
@@ -59,16 +58,11 @@ belongs_to_active_hash: prefecture
 | price            | integer | null: false       |
 | category_id      | integer | null: false       |
 | condition_id     | integer | null: false       |
-| delivery_fee.id  | integer | null: false       |
+| delivery_fee_id  | integer | null: false       |
 | prefecture_id    | integer | null: false       |
 | shipping_day_id  | integer | null: false       |
 | user             | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to: user
-belongs_to: purchase_record
-belongs_to_active_hash: category
-belongs_to_active_hash: condition
-belongs_to_active_hash: delivery_fee
-belongs_to_active_hash: prefecture
-belongs_to_active_hash: shipping_day
+has_one: purchase_record
