@@ -1,24 +1,54 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## users テーブル
 
-* Ruby version
+| Column           | Type    | Options                   |
+| ---------------- | ------- | ------------------------- |
+| nickname         | string  | null: false               |
+| email            | string  | null: false, unique: true |
+| password         | string  | null: false               |
+| family_name      | string  | null: false               |
+| first_name       | string  | null: false               |
+| family_name_kana | string  | null: false               |
+| first_name_kana  | string  | null: false               |
+| data_of_birth    | integer | null: false               |
 
-* System dependencies
+### Association
+has_many: items
+has_one: shipping_addresses
 
-* Configuration
 
-* Database creation
+## shipping_addresses テーブル
 
-* Database initialization
+| column           | Type    | Options           |
+| ---------------- | ------- | ----------------- |
+| post_code        | integer | null: false       |
+| prefecture       | string  | null: false       |
+| city             | string  | null: false       |
+| house_number     | string  | null: false       |
+| building_name    | string  |                   |
+| phone            | integer | null: false       |
+| user_id          | integer | foreign_key: true |
 
-* How to run the test suite
+### Association
+belongs_to: user
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## items テーブル
 
-* ...
+| column           | Type    | Options           |
+| ---------------- | ------- | ----------------- |
+| item_name        | string  | null: false       |
+| description      | text    | null: false       |
+| price            | integer | null: false       |
+| category         | string  | null: false       |
+| condition        | string  | null: false       |
+| delivery_fee     | string  | null: false       |
+| ship_from        | string  | null: false       |
+| shipping_day     | string  | null: false       |
+| user_id          | string  | foreign_key: true |
+
+### Association
+belongs_to: user
