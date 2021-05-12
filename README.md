@@ -13,24 +13,22 @@
 | first_name       | string  | null: false               |
 | family_name_kana | string  | null: false               |
 | first_name_kana  | string  | null: false               |
-| data_of_birth    | datetime | null: false               |
+| data_of_birth    | date    | null: false               |
 
 ### Association
 has_many: items
-has_one: buyers
-has_one: shipping_addresses
+has_many: purchase_record
 
 ## buyers テーブル
 
 | column           | Type      | Options           |
 | ---------------- | --------- | ----------------- |
-| user_id          | references|                   |
-| item_id          | references|                   |
-| address_id       | references|                   |
-
+| user             | references | null: false, foreign_key: true |
+| item             | references | null: false, foreign_key: true |
 
 ### Association
-has_one: buyer_addresses
+has_many: items
+has_one: addresses
 belongs_to: user
 
 
@@ -39,16 +37,16 @@ belongs_to: user
 
 | column           | Type    | Options           |
 | ---------------- | ------- | ----------------- |
-| post_code        | integer | null: false       |
-| prefecture.id    | integer | null: false       |
+| post_code        | string  | null: false       |
+| prefecture_id    | integer | null: false       |
 | city             | string  | null: false       |
 | house_number     | string  | null: false       |
 | building_name    | string  |                   |
 | phone            | string  | null: false       |
-| user_id          | references |                |
+| purchase_record  | references | null: false, foreign_key: true |
 
 ### Association
-belongs_to: user
+belongs_to: purchase_record
 belongs_to_active_hash: prefecture
 
 
@@ -59,15 +57,16 @@ belongs_to_active_hash: prefecture
 | item_name        | string  | null: false       |
 | description      | text    | null: false       |
 | price            | integer | null: false       |
-| category.id      | integer | null: false       |
-| condition.id     | integer | null: false       |
+| category_id      | integer | null: false       |
+| condition_id     | integer | null: false       |
 | delivery_fee.id  | integer | null: false       |
-| prefecture.id    | integer | null: false       |
-| shipping_day.id  | integer | null: false       |
-| user_id          | references |               |
+| prefecture_id    | integer | null: false       |
+| shipping_day_id  | integer | null: false       |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to: user
+belongs_to: purchase_record
 belongs_to_active_hash: category
 belongs_to_active_hash: condition
 belongs_to_active_hash: delivery_fee
