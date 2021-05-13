@@ -2,7 +2,6 @@
 
 # テーブル設計
 
-<<<<<<< Updated upstream
 ## users テーブル
 
 | Column           | Type    | Options                   |
@@ -69,4 +68,3 @@ belongs_to: user
 has_one: purchase_record
 =======
 ## users テーブル
->>>>>>> Stashed changes
