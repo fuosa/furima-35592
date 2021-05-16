@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    validates :password_confirmation
     validates :family_name
     validates :first_name
     validates :family_name_kana
