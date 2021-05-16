@@ -2,19 +2,18 @@
 
 # テーブル設計
 
-<<<<<<< Updated upstream
 ## users テーブル
 
-| Column           | Type    | Options                   |
-| ---------------- | ------- | ------------------------- |
-| nickname         | string  | null: false               |
-| email            | string  | null: false, unique: true |
+| Column             | Type    | Options                   |
+| ------------------ | ------- | ------------------------- |
+| nickname           | string  | null: false               |
+| email              | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
-| family_name      | string  | null: false               |
-| first_name       | string  | null: false               |
-| family_name_kana | string  | null: false               |
-| first_name_kana  | string  | null: false               |
-| data_of_birth    | date    | null: false               |
+| family_name        | string  | null: false               |
+| first_name         | string  | null: false               |
+| family_name_kana   | string  | null: false               |
+| first_name_kana    | string  | null: false               |
+| date_of_birth      | date    | null: false               |
 
 ### Association
 has_many: items
@@ -69,4 +68,3 @@ belongs_to: user
 has_one: purchase_record
 =======
 ## users テーブル
->>>>>>> Stashed changes
