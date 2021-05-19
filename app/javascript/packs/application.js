@@ -10,3 +10,5 @@ import "channels"
 
 Rails.start()
 ActiveStorage.start()
+
+require("./item_price");
