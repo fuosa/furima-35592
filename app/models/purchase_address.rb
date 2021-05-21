@@ -1,4 +1,4 @@
-lass PurchaseAddress
+class PurchaseAddress
 
   include ActiveModel::module
   attr_accessor :post_code, :prefecture_id, :city, :house_number, :building_number, :phone, :purchase_record, :user_id, :item_id
