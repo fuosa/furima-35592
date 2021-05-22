@@ -1,2 +1,3 @@
 class Address < ApplicationRecord
-  belongs_to :donation
+  belongs_to : purchase_record
+end
