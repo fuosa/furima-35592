@@ -4,8 +4,9 @@ class PurchaseAddress
   attr_accessor :post_code, :prefecture_id, :city, :house_number, :building_name, :phone, :user_id, :item_id, :purchase_record_id
   
   with_options presence: true do
-    # validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 10000000 }
-    validates :post_code, format: { with: /\A\d{3}[-]\d{3}\z/}
+    validates :user_id
+    validates :item_id
+    validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/ }
     validates :prefecture_id, numericality: { other_than: 0 }
     validates :city
     validates :house_number
