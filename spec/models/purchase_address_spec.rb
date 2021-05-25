@@ -72,6 +72,13 @@ RSpec.describe PurchaseAddress, type: :model do
         expect(@purchase_address.errors.full_messages).to include "Phone is invalid"
       end
 
+      it 'phoneに数値以外があると購入記録の保存ができない' do
+        @purchase_address.phone = 'a9012345678'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include "Phone is invalid"
+      end
+
+
       it 'user情報がないと購入記録の保存ができない' do
         @purchase_address.user_id = nil
         @purchase_address.valid?
