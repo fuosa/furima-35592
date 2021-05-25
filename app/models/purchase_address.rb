@@ -11,7 +11,7 @@ class PurchaseAddress
     validates :prefecture_id, numericality: { other_than: 0 }
     validates :city
     validates :house_number
-    validates :phone, format: { with: /\A[0-9]{11}\z/}
+    validates :phone, format: { with: /\A[0-9]{10,11}\z/}
   end
 
   def save
