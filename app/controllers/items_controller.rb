@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
   end
 
   def set_login
-    unless @item.user_id == current_user.id
+    unless @item.user_id  && @item.purchase_record.present? == current_user.id
       redirect_to action: :index
     end
   end
